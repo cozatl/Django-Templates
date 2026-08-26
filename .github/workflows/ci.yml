@@ -18,6 +18,12 @@ jobs:
     steps:
       - uses: "actions/checkout@v6"
 
+      - name: Create dummy Traefik network for testing
+        run: docker network create traefik-public
+
+      - name: Run docker compose check or build
+        run: docker compose config
+
       - name: "Install CI dependencies"
         run: |
           ./run ci:install-deps
