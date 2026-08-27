@@ -8,8 +8,8 @@ from django.shortcuts import render
 def home(request):
     context = {
         "debug": settings.DEBUG,
-        "django_ver": get_version(),
-        "python_ver": os.environ["PYTHON_VERSION"],
+        "django_ver": f'{get_version()}. PROBANDO CAMBIOS',
+        "python_ver": f'{os.environ["PYTHON_VERSION"]} MAS CAMBIOS',
     }
 
     return render(request, "pages/home.html", context)
