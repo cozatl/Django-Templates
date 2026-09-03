@@ -1,0 +1,17 @@
+{% include "ecommerce/search.html" %}
+
+{% include "ecommerce/messages.html" %}
+
+<h1>
+    List view
+</h1>
+
+<ul>
+    {% for product in products %}
+        <li>
+            <!-- {{ product.title }} {{ product.price }} -->
+            <!-- Get source url and add product id -->
+            <a href="{% url 'detail' product.id %}">{{ product.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
