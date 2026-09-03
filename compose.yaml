@@ -9,7 +9,7 @@ x-app: &default-app
       - "NODE_ENV=${NODE_ENV:-production}"
   depends_on:
     postgres:
-      condition: "service_started"
+      condition: "service_healthy"
       required: false
     redis:
       condition: "service_started"
@@ -98,9 +98,6 @@ services:
       timeout: "3s"
       start_period: "5s"
       retries: 3
-    depends_on:
-      postgres:
-        condition: service_healthy
 # Removed lines since localhost won't be working on Linux
     ports:
       - "${DOCKER_WEB_PORT_FORWARD:-127.0.0.1:8000}:${PORT:-8000}"
