@@ -1,0 +1,10 @@
+{% include "ecommerce/messages.html" %}
+
+<h1>Delete - {{ product.title }}</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    Are you sure you want to delete this product?
+    <input type="submit" value="Delete" />
+    <a href="/ecommerce/{{ product.id }}/">Cancel</a>
+</form>
