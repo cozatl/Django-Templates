@@ -1,8 +1,8 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 
 from .forms import ProductModelForm
 from .models import ProductModel
@@ -26,7 +26,7 @@ def product_model_update_view(request, product_id= None):
         instance = form.save(commit=False)
         instance.save()
         messages.success(request, "Product updated successfully")
-        return HttpResponseRedirect('/ecommerce/{product_id}/'.format(product_id=instance.id))
+        return HttpResponseRedirect(f'/ecommerce/{instance.id}/')
     context = { "form": form }
     template = "ecommerce/update-view.html"
     return render(request, template, context)
@@ -37,7 +37,7 @@ def product_model_create_view(request):
         instance = form.save(commit=False)
         instance.save()
         messages.success(request, "Product created successfully")
-        return HttpResponseRedirect('/ecommerce/{product_id}/'.format(product_id=instance.id))
+        return HttpResponseRedirect(f'/ecommerce/{instance.id}/')
     context = { "form": form }
     template = "ecommerce/create-view.html"
     return render(request, template, context)
@@ -48,8 +48,11 @@ def product_model_detail_view(request, product_id):
     template = "ecommerce/detail-view.html"
     return render(request, template, context)
 
-#@login_required(login_url='/admin/login/')   # This decorator ensures that only authenticated users can access this view. If a user is not logged in, they will be redirected to the login page.
-# @login_required                               # Defined in settings.py as LOGIN_URL = "/admin/login/"
+# This decorator ensures that only authenticated users can access this view.
+# If a user is not logged in, they will be redirected to the login page.
+#@login_required(login_url='/admin/login/')
+# Defined in settings.py as LOGIN_URL = "/admin/login/"
+# @login_required
 def product_model_list_view(request):
     print('user:',request.user)
     query = request.GET.get('q', None)
@@ -70,7 +73,8 @@ def product_model_list_view(request):
 
     return render(request, template, context)
 
-@login_required                               # Defined in settings.py as LOGIN_URL = "/admin/login/"
+# Defined in settings.py as LOGIN_URL = "/admin/login/"
+@login_required
 def login_required_view(request):
     print('user:',request.user)
     queryset = ProductModel.objects.all()

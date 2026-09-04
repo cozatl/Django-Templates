@@ -1,10 +1,13 @@
 from django import forms
+
 from .models import ProductModel
 
+
+#Starting form model
 class ProductModelForm(forms.ModelForm):
     class Meta:
         model = ProductModel
-        fields = [
+        fields = [ # noqa: RUF012
             'title',
             'description',
             'price',
