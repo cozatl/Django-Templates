@@ -18,6 +18,8 @@ dependencies = [
 
 [tool.ruff]
 line-length = 79
+# Avoid review generated files automatically for Django
+extend-exclude = ["*/migrations/*"]
 
 [tool.ruff.lint]
 extend-select = ["I", "SIM", "E501"]
