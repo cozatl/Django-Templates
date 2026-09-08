@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 
-BLOCKED_WORDS = ["cheap","bad"]  # Example blocked words
+BLOCKED_WORDS = ["cheap", "bad"]  # Example blocked words
 
 
 def validate_blocked_words(value):

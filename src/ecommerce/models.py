@@ -27,7 +27,6 @@ class ProductModel(BasePublishModel):
         related_name="products",
     )
 
-
     def get_absolute_url(self):
         return f"/products/{self.slug}/"
 
@@ -36,6 +35,7 @@ class ProductModel(BasePublishModel):
         self.description = validate_blocked_words(self.description)
         self.seller = validate_blocked_words(self.seller)
         super().save(*args, **kwargs)
+
 
 def slugify_pre_save(sender, instance, *args, **kwargs):
     if not instance.slug or instance.slug == "":
