@@ -12,7 +12,6 @@ User = settings.AUTH_USER_MODEL
 
 # Create your models here.
 class ProductModel(BasePublishModel):
-
     title = models.TextField()
     description = models.TextField(null=True)
     slug = models.SlugField(unique=True, null=True, blank=True, db_index=True)
@@ -28,6 +27,7 @@ class ProductModel(BasePublishModel):
         related_name="products",
     )
 
+
     def get_absolute_url(self):
         return f"/products/{self.slug}/"
 
@@ -41,13 +41,13 @@ def slugify_pre_save(sender, instance, *args, **kwargs):
     if not instance.slug or instance.slug == "":
         new_slug = slugify(instance.title)
         MyModel = instance.__class__
-        qs = (
-            MyModel.objects.filter(slug__startswith=new_slug)
-            .exclude(id=instance.id)
+        qs = MyModel.objects.filter(slug__startswith=new_slug).exclude(
+            id=instance.id
         )
         if qs.count() == 0:
             instance.slug = new_slug
         else:
             instance.slug = f"{new_slug}-{qs.count() + 1}"
-    
+
+
 pre_save.connect(slugify_pre_save, sender=ProductModel)

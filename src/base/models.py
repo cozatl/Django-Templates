@@ -8,7 +8,7 @@ class BasePublishModel(models.Model):
         DRAFT = "DF", "Draft"
         PUBLISHED = "PU", "Published"
         PRIVATE = "PR", "Private"
-        
+
     state = models.CharField(
         max_length=2,
         choices=PublishStateOptions.choices,
