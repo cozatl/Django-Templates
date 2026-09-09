@@ -131,12 +131,6 @@ of [WSL or WSL
 That's because we're going to be running shell commands. You can always modify
 these commands for PowerShell if you want.
 
-#### Clone this repo anywhere you want and move into the directory:
-
-```sh
-git clone https://github.com/nickjj/docker-django-example hellodjango
-cd hellodjango
-```
 
 #### Copy an example .env file because the real one is git ignored:
 
@@ -232,7 +226,7 @@ documentation in the `run` file itself.
 
 It's a shell script that has a number of functions defined to help you interact
 with this project. It's basically a `Makefile` except with [less
-limitations](https://nickjanetakis.com/blog/replacing-make-with-a-shell-script-for-running-your-projects-tasks).
+limitations].
 For example as a shell script it allows us to pass any arguments to another
 program.
 
@@ -265,14 +259,6 @@ heavy lifting for you. All you have to do is run the script below.
 # myapp or my_app for the first argument you would want to use MyApp here.
 bin/rename-project myapp MyApp
 ```
-
-The [bin/rename-project
-script](https://github.com/nickjj/docker-django-example/blob/main/bin/rename-project)
-is going to:
-
-- Remove any Docker resources for your current project
-- Perform a number of find / replace actions
-- Optionally initialize a new git repo for you
 
 *Afterwards you can delete this script because its only purpose is to assist in
 helping you change this project's name without depending on any complicated
@@ -361,9 +347,7 @@ after you've upped the project.
 #### In CI:
 
 You'll want to run `docker compose build` since it will use any existing lock
-files if they exist. You can also check out the complete CI test pipeline in
-the [run](https://github.com/nickjj/docker-django-example/blob/main/run) file
-under the `ci:test` function.
+files if they exist.
 
 #### In production:
 
@@ -399,22 +383,12 @@ couple of free and paid resources. There's Google too!
   books](https://gumroad.com/a/139727987). He also co-hosts the [Django
   Chat](https://djangochat.com/) podcast
 
-### Deploy to production
-
-I'm creating an in-depth course related to deploying Dockerized web apps. If
-you want to get notified when it launches with a discount and potentially get
-free videos while the course is being developed then [sign up here to get
-notified](https://nickjanetakis.com/courses/deploy-to-production).
 
 ## 👀 About the author
 
-- Nick Janetakis | <https://nickjanetakis.com> | [@nickjanetakis](https://twitter.com/nickjanetakis)
+- Jesus Cozatl | <https://cvsistemas.com.mx> | 
 
-I'm a self taught developer and have been freelancing for the last ~20 years.
-You can read about everything I've learned along the way on my site at
-[https://nickjanetakis.com](https://nickjanetakis.com/).
+I'm a developer and have been working on IT for the last ~10 years.
 
-There's hundreds of [blog posts](https://nickjanetakis.com/) and a couple
-of [video courses](https://nickjanetakis.com/courses) on web development and
-deployment topics. I also have a [podcast](https://runninginproduction.com)
-where I talk with folks about running web apps in production.
+Currently I'm working on different companies and taking several courses
+to keep learning more technologies and provide solutions for my clients.
