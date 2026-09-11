@@ -1,0 +1,12 @@
+<h1>{{ title }}</h1>
+
+<div>
+    <h2>{{ object.pk }}</h2>
+    <h2>{{ object.title }}</h2>
+    <p>{{ object.slug }}</p>
+    <!-- <p>Price: ${{ object.price }}</p> -->
+</div>
+
+{% if form %}
+    {% include "forms.html" with form=form delete_url=object.get_delete_url %}
+{% endif %}
