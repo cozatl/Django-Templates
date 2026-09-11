@@ -3,6 +3,7 @@ from django.db import models
 
 User = settings.AUTH_USER_MODEL
 
+
 # Create your models here.
 class Product(models.Model):
     user = models.ForeignKey(
@@ -25,7 +26,7 @@ class Product(models.Model):
         return f"/products/my-products/{self.slug}"
 
     def get_delete_url(self):
-            return f"/products/my-products/{self.slug}/delete"
+        return f"/products/my-products/{self.slug}/delete"
 
     def __str__(self):
         return self.title

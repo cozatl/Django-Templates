@@ -1,4 +1,3 @@
-
 class TemplateTitleMixin:
     """
     Mixin to add a title to the context for template rendering.

@@ -8,5 +8,5 @@ from .models import Product
 class ProductModelForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields: ClassVar[list[str]] = ['title', 'slug']
+        fields: ClassVar[list[str]] = ["title", "slug"]
         # fields = ['title', 'slug']

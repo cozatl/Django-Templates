@@ -39,9 +39,9 @@ class ProtectedProductCreateView(
     LoginRequiredMixin, TemplateTitleMixin, CreateView
 ):
     model = Product
-    template_name = "forms.html" # REVIEW
+    template_name = "forms.html"  # REVIEW
     title = "Create Product"
-    fields = ('title', 'slug')
+    fields = ("title", "slug")
 
     def form_valid(self, form):
         # Set the user of the product to the currently logged-in user
@@ -61,12 +61,12 @@ class ProductIDRedirectView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         url_params = self.kwargs
-        pk = url_params.get("pk")       
+        pk = url_params.get("pk")
         # Get the product based on the slug from the URL
         # product = get_object_or_404(Product, slug=kwargs['slug'])
         product = get_object_or_404(Product, pk=pk)
         slug = product.slug
-        print("testy",slug)
+        print("testy", slug)
         # Redirect to the product's detail page using its ID
         return f"/products/products/{slug}/"
 
@@ -81,7 +81,7 @@ class ProductRedirectView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         url_params = self.kwargs
         slug = url_params.get("slug")
-        print("test",slug)
+        print("test", slug)
         # Redirect to the product's detail page using its ID
         return f"/products/products/{slug}/"
 
