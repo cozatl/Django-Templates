@@ -1,0 +1,60 @@
+<h1>{{ view_title |title }}</h1>
+<h1>{{ view_title |lower }}</h1>
+<p>Today's date is: {{ today | date:"Y-m-d" }}</p>
+<p>My number is: {{ my_number | add:300 }}</p>
+<p>My number is: {{ my_number | add:my_number2 }}</p>
+<ul>
+    {% for item in items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+<style>
+    .bold {
+        font-weight: bold;
+    }
+</style>
+<ul>
+    {% for item in my_list %}
+        <li {% if forloop.first %} class="bold" {% endif %}>
+            forloop.counter: {{ forloop.counter }} -
+            {{ item }}
+        </li>
+    {% endfor %}
+</ul>
+{% comment %} Validate even values below {% endcomment %}
+<ul>
+    {% for item in my_list %}
+        <li {% if forloop.counter|divisibleby:2 %} class="bold" {% endif %}>
+            forloop.counter: {{ forloop.counter }} -
+            {{ item }}
+        </li>
+    {% endfor %}
+</ul>
+{% comment %} Validate odd values below {% endcomment %}
+<ul>
+    {% for item in my_list %}
+        <li {% if forloop.counter|add:1|divisibleby:2 %} class="bold" {% endif %}>
+            forloop.counter: {{ forloop.counter }} -
+            {{ item }}
+        </li>
+    {% endfor %}
+</ul>
+{% comment %} Bold every third item {% endcomment %}
+<ul>
+    {% for item in my_list %}
+        <li class="{% cycle '' '' 'bold' %}">
+            forloop.counter: {{ forloop.counter }} -
+            {{ item }}
+        </li>
+    {% endfor %}
+</ul>
+{% comment %} Bold every fourth item {% endcomment %}
+<ul>
+    {% for item in my_list %}
+        <li class="{% cycle '' '' '' 'bold' %}">
+            forloop.counter: {{ forloop.counter }} -
+            {{ item }}
+        </li>
+    {% endfor %}
+</ul>

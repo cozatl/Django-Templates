@@ -1,0 +1,16 @@
+{% extends "test_templates/base.html" %}
+
+{% block title %}My Django App in test_view2.html{% endblock %}
+
+{% block header %}
+    <h1>Welcome to My Django App - Test View 2</h1>
+{% endblock %}
+
+{% block content %}
+    <p>This is the content of test_view2.html.</p>
+    <ul>
+        {% for item in my_list %}
+            <li class="{% cycle '' 'bold' '' '' %}">{{ item }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

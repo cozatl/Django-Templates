@@ -1,0 +1,22 @@
+<h2>Object Detail</h2>
+<p><strong>Today's date:</strong> {{ today|date:"d/m/Y H:i" }}</p>
+<p><strong>Title:</strong> {{ object_title|title }}</p>
+<p><strong>Price:</strong> ${{ price|floatformat:2 }}</p>
+<p><strong>Created At:</strong> {{ created_at|date:"Y-m-d" }}</p>
+
+<h2>For Loop Example (Divisible by 3)</h2>
+<ul>
+    {% for item in items_list %}
+        {# Validate if iteration (1, 2, 3...) is divisible by 3 #}
+        <li class="{% if forloop.counter|divisibleby:3 %}bold{% endif %}">
+            Item #{{ forloop.counter }} (Index {{ forloop.counter0 }}): 
+            {{ item|upper }}
+            
+            {% if forloop.counter|divisibleby:3 %}
+                <strong>👈 (Is divisible by 3)</strong>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>No items in the list.</li>
+    {% endfor %}
+</ul>

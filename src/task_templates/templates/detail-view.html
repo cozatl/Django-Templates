@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Detail View - {{ block.super }}{% endblock %}
+
+{% block content %}
+    {# We cleanly pass all the necessary variables to the sub-template. #}
+    {% include "object-detail.html" with object_title="X product" price=13 created_at=today items_list=my_list %}
+{% endblock content %}
