@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django App{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .bold {
+            font-weight: bold;
+            color: #2b6cb0;
+        }
+        .messages {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+            background-color: #e2e8f0;
+        }
+    </style>
+</head>
+
+<body>
+    {# Asegúrate de que la ruta coincida con la ubicación real de tu archivo de mensajes #}
+    {% include "messages.html" %}
+
+    <header>
+        <h1>{% block header %}My Django App{% endblock %}</h1>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Django App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
