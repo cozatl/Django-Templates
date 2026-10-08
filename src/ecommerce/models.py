@@ -36,6 +36,9 @@ class ProductModel(BasePublishModel):
         self.seller = validate_blocked_words(self.seller)
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.title
+
 
 def slugify_pre_save(sender, instance, *args, **kwargs):
     if not instance.slug or instance.slug == "":
