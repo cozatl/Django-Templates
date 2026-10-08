@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "forms_test.apps.FormsTestConfig",
     "test_templates.apps.TestTemplatesConfig",
     "task_templates.apps.TaskTemplatesConfig",
+    "api.apps.ApiConfig",
     "base.apps.BaseConfig",
     "django.contrib.admin",
     "django.contrib.auth",
