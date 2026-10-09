@@ -15,7 +15,6 @@ late 2014.
 **This app is using Django 6.1 and Python 3.14.7**. The screenshot shows
 `X.X.X` since they get updated regularly:
 
-[![Screenshot](.github/docs/screenshot.jpg)](https://github.com/nickjj/docker-django-example/blob/main/.github/docs/screenshot.jpg?raw=true)
 
 ## 🧾 Table of contents
 
@@ -122,12 +121,12 @@ Desktop. On native Linux without Docker Desktop you can [install it as a plugin
 to Docker](https://docs.docker.com/compose/install/linux/). It's been generally
 available for a while now and is stable. This project uses specific [Docker
 Compose v2
-features](https://nickjanetakis.com/blog/optional-depends-on-with-docker-compose-v2-20-2)
+features]
 that only work with Docker Compose v2 2.20.2+.
 
 If you're using Windows, it will be expected that you're following along inside
 of [WSL or WSL
-2](https://nickjanetakis.com/blog/a-linux-dev-environment-on-windows-with-wsl-2-docker-desktop-and-more).
+2].
 That's because we're going to be running shell commands. You can always modify
 these commands for PowerShell if you want.
 
@@ -308,12 +307,6 @@ Since this project is MIT licensed you should keep my name and email address in
 the `LICENSE` file to adhere to that license's agreement, but you can also add
 your name and email on a new line.
 
-If you happen to base your app off this example app or write about any of the
-code in this project it would be rad if you could credit this repo by linking
-to it. If you want to reference me directly please link to my site at
-<https://nickjanetakis.com>. You don't have to do this, but it would be very
-much appreciated!
-
 ## 🛠 Updating dependencies
 
 You can run `./run uv:outdated` or `./run yarn:outdated` to get a list of
@@ -390,5 +383,5 @@ couple of free and paid resources. There's Google too!
 
 I'm a developer and have been working on IT for the last ~10 years.
 
-Currently I'm working on different companies and taking several courses
+Currently I'm working at different companies and taking several courses
 to keep learning more technologies and provide solutions for my clients.
